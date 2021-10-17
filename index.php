@@ -1,6 +1,6 @@
 <?php
 
-  // Including Class Files
+  // Including Class AutoLoader
   include 'includes/autoloader.php';
 
   // If Data is Submitted
