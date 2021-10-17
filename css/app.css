@@ -1,0 +1,36 @@
+/*
+	Custom CSS by Saidul Mursalin
+*/
+
+body {
+	background-image: url(../img/background.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.container {
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	width: 550px;
+	font-family: inherit;
+	font-size: large;
+}
+
+h1 {
+	font-weight: 700;
+	margin-top: 100px;
+}
+
+input[type=text] {
+	width: 100%;
+ 	padding: 20px;
+ 	margin: 5px 0;
+}
+
+input[type=submit] {
+ 	padding: 10px;
+ 	margin-bottom: 5px;
+}
