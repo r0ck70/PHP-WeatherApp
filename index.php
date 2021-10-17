@@ -14,7 +14,6 @@
     $result = $weatherData->getData();
   }
 
-
  ?>
 
 
@@ -27,7 +26,7 @@
     
     <title>Current Weather and Forecast Information</title>
 
-    <!-- .//Bootstrap -->
+    <!-- .//Bootstrap and Custom CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
 
@@ -45,11 +44,11 @@
           <input class="btn btn-primary" type="submit" name="submit" value="CheckOut Now">
         </div>
       </form>
-      <?php if(isset($result)) {
-        echo '<div class="alert alert-success" role="alert">';
-        echo $result;
-        echo '</div>';
-      } ?>
+      <?php if(isset($result)) {  ?>
+        <div class="alert alert-success" role="alert">
+        <?php echo $result; ?>
+        </div>
+      <?php } ?>
     </div>
 
     <!-- .//JavaScripts -->
