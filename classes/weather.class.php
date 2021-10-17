@@ -32,14 +32,14 @@ class Weather {
 
 			// Organizing Data
 			$this->cityName			= $dataArray['name'];
-			$this->weatherDescription = ucwords($dataArray['weather']['0']['description']);
-			$this->countryName     = $dataArray['sys']['country'];
+			$this->weatherDescription 	= ucwords($dataArray['weather']['0']['description']);
+			$this->countryName    		= $dataArray['sys']['country'];
 			$this->temperature		= intval($dataArray['main']['temp']-273);
 			$this->atmPressure		= $dataArray['main']['pressure'];
-			$this->windSpeed			= $dataArray['wind']['speed'];
-			$this->cloudsPercentage	= $dataArray['clouds']['all'];
-			$this->sunsetTime 	    = date('g:i',$dataArray['sys']['sunset']);
-			$this->sunriseTime 	    = date('h:i',$dataArray['sys']['sunrise']);
+			$this->windSpeed		= $dataArray['wind']['speed'];
+			$this->cloudsPercentage		= $dataArray['clouds']['all'];
+			$this->sunsetTime 	    	= date('g:i',$dataArray['sys']['sunset']);
+			$this->sunriseTime 	    	= date('h:i',$dataArray['sys']['sunrise']);
 
 			// Returing Data to Print
 			return "<strong>".$this->cityName.", ".$this->countryName." : ".$this->temperature."&deg;</strong>c<br>
