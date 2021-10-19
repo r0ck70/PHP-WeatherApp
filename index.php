@@ -1,6 +1,6 @@
 <?php
 
-  // Including Class AutoLoader
+  // Including Class Files
   include 'includes/autoloader.php';
 
   // If Data is Submitted
@@ -21,12 +21,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="description" content="Get current weather and forecast information for free.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+
     
     <title>Current Weather and Forecast Information</title>
 
-    <!-- .//Bootstrap and Custom CSS -->
+    <!-- .//Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
 
@@ -36,19 +38,31 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center">Search for Weather Info</h1>
+      <a href=""><h1 class="text-center">Search for Weather Info</h1></a>
       <form action="" method="POST">
         <label class="text-center" for="city">Enter your City</label>
-        <input class="form-control" type="text" id="city" name="city" placeholder="Ex. Dhaka" value="<?php if(isset($city)) { echo $city; } ?>" required>
+        <input class="form-control" type="text" id="city" name="city" placeholder="Ex. Dhaka or Jamalpur, BD" value="<?php if(isset($city)) { echo $city; } ?>" required>
         <div class="text-center">
           <input class="btn btn-primary" type="submit" name="submit" value="CheckOut Now">
         </div>
       </form>
       <?php if(isset($result)) {  ?>
         <div class="alert alert-success" role="alert">
-        <?php echo $result; ?>
+        <?php 
+        echo "<strong>".$weatherData->cityName.", ".$weatherData->countryName." : ".$weatherData->temperature."&deg;</strong>c<br>
+      <strong>Weather Condition: </strong>".$weatherData->weatherDescription."<br>
+      <strong>Atmosperic Pressure: </strong>".$weatherData->atmPressure."hPa<br>
+      <strong>Wind Speed: </strong>".$weatherData->windSpeed."meter/sec<br>
+      <strong>Cloudness: </strong>".$weatherData->cloudsPercentage."%<br>
+      <strong>Sunrise: </strong>".$weatherData->sunriseTime."am <strong>Sunset: </strong> ".$weatherData->sunsetTime."pm";
+       ?>
         </div>
-      <?php } ?>
+      <?php } else {
+        echo '<div class="alert alert-danger" role="alert">
+        '.$weatherData->error.'
+        </div>';
+      }
+       ?>
     </div>
 
     <!-- .//JavaScripts -->
@@ -56,3 +70,5 @@
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
