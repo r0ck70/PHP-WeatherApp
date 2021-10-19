@@ -5,16 +5,15 @@ class Weather {
 	// Properties
 	private $city;
 	private $key;
-	public $cityName;
-	public $weatherDescription;
-	public $countryName;
-	public $temperature;
-	public $atmPressure;
-	public $windSpeed;
-	public $cloudsPercentage;
-	public $sunsetTime;
-	public $sunriseTime;
-	public $error;
+	private $cityName;
+	private $weatherDescription;
+	private $countryName;
+	private $temperature;
+	private $atmPressure;
+	private $windSpeed;
+	private $cloudsPercentage;
+	private $sunsetTime;
+	private $sunriseTime;
 
 	public function __construct($city) {
 		
@@ -44,16 +43,15 @@ class Weather {
 			$this->sunriseTime 	    = date('h:i',$dataArray['sys']['sunrise']);
 
 			// Returing Data to Print
-			return true;
-			/*return "<strong>".$this->cityName.", ".$this->countryName." : ".$this->temperature."&deg;</strong>c<br>
+			return "<div class='alert alert-success' role='alert'><strong>".$this->cityName.", ".$this->countryName." : ".$this->temperature."&deg;</strong>c<br>
 			<strong>Weather Condition: </strong>".$this->weatherDescription."<br>
 			<strong>Atmosperic Pressure: </strong>".$this->atmPressure."hPa<br>
 			<strong>Wind Speed: </strong>".$this->windSpeed."meter/sec<br>
 			<strong>Cloudness: </strong>".$this->cloudsPercentage."%<br>
-			<strong>Sunrise: </strong>".$this->sunriseTime."am <strong>Sunset: </strong> ".$this->sunsetTime."pm";*/
+			<strong>Sunrise: </strong>".$this->sunriseTime."am <strong>Sunset: </strong> ".$this->sunsetTime."pm</div>";
 		}
 		else {
-			$this->error = "Something went wrong!";
+			return '<div class="alert alert-danger" role="alert">Something went wrong!</div>';
 		}
 	}
 
