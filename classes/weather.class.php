@@ -5,17 +5,19 @@ class Weather {
 	// Properties
 	private $city;
 	private $key;
-	private $cityName;
-	private $weatherDescription;
-	private $countryName;
-	private $temperature;
-	private $atmPressure;
-	private $windSpeed;
-	private $cloudsPercentage;
-	private $sunsetTime;
-	private $sunriseTime;
+	public $cityName;
+	public $weatherDescription;
+	public $countryName;
+	public $temperature;
+	public $atmPressure;
+	public $windSpeed;
+	public $cloudsPercentage;
+	public $sunsetTime;
+	public $sunriseTime;
+	public $error;
 
 	public function __construct($city) {
+		
 		// Intiating Data
 		$this->city = $city;
 		$this->key  = "ee5a5b8f84f20139882461f32e57acf2";
@@ -32,25 +34,26 @@ class Weather {
 
 			// Organizing Data
 			$this->cityName			= $dataArray['name'];
-			$this->weatherDescription 	= ucwords($dataArray['weather']['0']['description']);
-			$this->countryName    		= $dataArray['sys']['country'];
+			$this->weatherDescription = ucwords($dataArray['weather']['0']['description']);
+			$this->countryName     = $dataArray['sys']['country'];
 			$this->temperature		= intval($dataArray['main']['temp']-273);
 			$this->atmPressure		= $dataArray['main']['pressure'];
-			$this->windSpeed		= $dataArray['wind']['speed'];
-			$this->cloudsPercentage		= $dataArray['clouds']['all'];
-			$this->sunsetTime 	    	= date('g:i',$dataArray['sys']['sunset']);
-			$this->sunriseTime 	    	= date('h:i',$dataArray['sys']['sunrise']);
+			$this->windSpeed			= $dataArray['wind']['speed'];
+			$this->cloudsPercentage	= $dataArray['clouds']['all'];
+			$this->sunsetTime 	    = date('g:i',$dataArray['sys']['sunset']);
+			$this->sunriseTime 	    = date('h:i',$dataArray['sys']['sunrise']);
 
 			// Returing Data to Print
-			return "<strong>".$this->cityName.", ".$this->countryName." : ".$this->temperature."&deg;</strong>c<br>
+			return true;
+			/*return "<strong>".$this->cityName.", ".$this->countryName." : ".$this->temperature."&deg;</strong>c<br>
 			<strong>Weather Condition: </strong>".$this->weatherDescription."<br>
 			<strong>Atmosperic Pressure: </strong>".$this->atmPressure."hPa<br>
 			<strong>Wind Speed: </strong>".$this->windSpeed."meter/sec<br>
 			<strong>Cloudness: </strong>".$this->cloudsPercentage."%<br>
-			<strong>Sunrise: </strong>".$this->sunriseTime."am <strong>Sunset: </strong> ".$this->sunsetTime."pm";
+			<strong>Sunrise: </strong>".$this->sunriseTime."am <strong>Sunset: </strong> ".$this->sunsetTime."pm";*/
 		}
 		else {
-			return "Something went wrong!";
+			$this->error = "Something went wrong!";
 		}
 	}
 
