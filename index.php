@@ -1,7 +1,7 @@
 <?php
 
   // Including Class Files
-  include 'includes/autoloader.php';
+  include 'classes/weather.class.php';
 
   // If Data is Submitted
   if(isset($_POST['submit']) AND (!empty($city = $_POST['city']))) {
@@ -47,22 +47,9 @@
         </div>
       </form>
       <?php if(isset($result)) {  ?>
-        <div class="alert alert-success" role="alert">
-        <?php 
-        echo "<strong>".$weatherData->cityName.", ".$weatherData->countryName." : ".$weatherData->temperature."&deg;</strong>c<br>
-      <strong>Weather Condition: </strong>".$weatherData->weatherDescription."<br>
-      <strong>Atmosperic Pressure: </strong>".$weatherData->atmPressure."hPa<br>
-      <strong>Wind Speed: </strong>".$weatherData->windSpeed."meter/sec<br>
-      <strong>Cloudness: </strong>".$weatherData->cloudsPercentage."%<br>
-      <strong>Sunrise: </strong>".$weatherData->sunriseTime."am <strong>Sunset: </strong> ".$weatherData->sunsetTime."pm";
-       ?>
+        <?php echo $result; ?>
         </div>
-      <?php } else {
-        echo '<div class="alert alert-danger" role="alert">
-        '.$weatherData->error.'
-        </div>';
-      }
-       ?>
+      <?php } ?>
     </div>
 
     <!-- .//JavaScripts -->
