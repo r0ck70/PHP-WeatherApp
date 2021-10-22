@@ -1,7 +1,3 @@
-/*
-	Custom CSS by Saidul Mursalin
-*/
-
 body {
 	background-image: url(../img/background.jpg);
 	background-size: cover;
@@ -14,23 +10,42 @@ body {
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	width: 550px;
+	width: 450px;
 	font-family: inherit;
 	font-size: large;
 }
 
-h1 {
+.container h1 {
+	font-size: 2.2rem;
 	font-weight: 700;
 	margin-top: 100px;
 }
 
-input[type=text] {
-	width: 100%;
- 	padding: 20px;
- 	margin: 5px 0;
+.container textarea:focus, input:focus {
+    outline: none;
 }
 
-input[type=submit] {
+.container input[type=text] {
+	width: 100%;
+ 	padding: 15px;
+ 	margin-bottom: 10px;
+}
+
+.container input[type=submit] {
  	padding: 10px;
- 	margin-bottom: 5px;
+ 	margin-bottom: 20px;
+}
+
+a:link, a:hover, a:active, a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: grey;
+}
+
+img {
+	height: 24px;
+	width: 24px;
 }

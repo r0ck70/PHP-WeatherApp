@@ -43,7 +43,7 @@ class Weather {
 			$this->sunriseTime 	    = date('h:i',$dataArray['sys']['sunrise']);
 
 			// Returing Data to Print
-			return "<div class='alert alert-success' role='alert'><strong>".$this->cityName.", ".$this->countryName." : ".$this->temperature."&deg;</strong>c<br>
+			return "<div class='alert alert-success' role='alert'><strong>".$this->cityName." <img src='https://prayertimes.date/images/flags/rounded/34x34/".$this->countryName.".png' alt='".$this->countryName."'> : ".$this->temperature."&deg;</strong>c<br>
 			<strong>Weather Condition: </strong>".$this->weatherDescription."<br>
 			<strong>Atmosperic Pressure: </strong>".$this->atmPressure."hPa<br>
 			<strong>Wind Speed: </strong>".$this->windSpeed."meter/sec<br>
